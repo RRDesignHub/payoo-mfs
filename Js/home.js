@@ -37,6 +37,11 @@ document.getElementById('add-money-btn').addEventListener('click', function(even
   const addAmountpin = getInputValueById('add-money-pin');
   const currentBalNum = getTextInputValueById('current-bal');
 
+  if(isNaN(addAmountNum)){
+    alert("Invalid Input!");
+    return;
+  }
+
   if(addAmountpin === 1234){
     let newBalance = currentBalNum + addAmountNum;
     document.getElementById('current-bal').innerText = newBalance;
@@ -68,14 +73,25 @@ document.getElementById('cashout-btn').addEventListener('click', function(event)
   const cashOutpin = getInputValueById('cashout-pin');
   const currentBalNum = getTextInputValueById('current-bal');
 
+  if(isNaN(cashOutNum)){
+    alert("Invalid Input!");
+    return;
+  }
   if(cashOutpin === 1234){
+    if(cashOutNum > currentBalNum){
+      alert("Insufficient balance!");
+      return;
+    }
+    
     let newBalance = currentBalNum - cashOutNum;
     document.getElementById('current-bal').innerText = newBalance;
+
+    
 
     const newSec = document.createElement('div');
     newSec.innerHTML = `<div class="stats bg-primary text-primary-content mb-2">
           <div class="stat ">
-            <div id="transaction-bal-text" class="stat-title text-white">Cash out amount: </div>
+            <div id="transaction-bal-text" class="stat-title text-white">Cash Out Amount: </div>
             <div id="transaction-bal" class="stat-value">${cashOutNum}</div>
           </div>
         
