@@ -1,70 +1,93 @@
 // show layout for add money
 document.getElementById('add-money-show-btn').addEventListener('click', function(){
-  const addMoneyLayout = document.getElementById('add-money-layout');
-  const cashOutLayout = document.getElementById('cashout-layout');
-
-  // show and hide layout(add money and cashout)
-  addMoneyLayout.classList.remove('hidden');
-  cashOutLayout.classList.add('hidden');
+  
+  togleLayout('add-money-layout');
 
 
   // show layout btn bg
   document.getElementById('add-money-show-btn').classList.add('btn-primary');
   document.getElementById('cashout-show-btn').classList.remove('btn-primary');
+  document.getElementById("transaction-btn").classList.remove('btn-primary');
 })
 
 // show layout for cashout
 document.getElementById('cashout-show-btn').addEventListener('click', function(){
-  const addMoneyLayout = document.getElementById('add-money-layout');
-  const cashOutLayout = document.getElementById('cashout-layout');
-
-  // show and hide layout(add money and cashout)
-  addMoneyLayout.classList.add('hidden');
-  cashOutLayout.classList.remove('hidden');
-
-
+  togleLayout('cashout-layout');
   // show layout btn bg
   document.getElementById('add-money-show-btn').classList.remove('btn-primary');
   document.getElementById('cashout-show-btn').classList.add('btn-primary');
+  document.getElementById("transaction-btn").classList.remove('btn-primary');
+})
+
+
+// transaction layout:
+document.getElementById("transaction-btn").addEventListener('click', function(){
+  togleLayout('transaction-layout');
+  // show layout btn bg
+  document.getElementById('add-money-show-btn').classList.remove('btn-primary');
+  document.getElementById('cashout-show-btn').classList.remove('btn-primary');
+  document.getElementById("transaction-btn").classList.add('btn-primary');
 })
 
 
 
 document.getElementById('add-money-btn').addEventListener('click', function(event){
   event.preventDefault();
+  const addAmountNum = getInputValueById('add-amount');
+  const addAmountpin = getInputValueById('add-money-pin');
+  const currentBalNum = getTextInputValueById('current-bal');
 
-  const addAmountStr = document.getElementById('add-amount').value;
-  const addAmountNum = parseFloat(addAmountStr);
-  const addAmountpin = document.getElementById('add-money-pin').value;
-  const currentBalStr = document.getElementById('current-bal').innerText;
-  const currentBalNum = parseFloat(currentBalStr);
-  let newBalance = 0;
+  if(addAmountpin === 1234){
+    let newBalance = currentBalNum + addAmountNum;
+    document.getElementById('current-bal').innerText = newBalance;
 
-  
-  if(addAmountpin === '1234'){
-    newBalance = currentBalNum + addAmountNum;
+    const newSec = document.createElement('div');
+    newSec.innerHTML = `<div class="stats bg-primary text-primary-content mb-2">
+          <div class="stat ">
+            <div id="transaction-bal-text" class="stat-title text-white">Added amount: </div>
+            <div id="transaction-bal" class="stat-value">${addAmountNum}</div>
+          </div>
+        
+          <div class="stat">
+            <div id="new-bal-text" class="stat-title text-white">New Balance: </div>
+            <div id="new-bal" class="stat-value">${newBalance}</div>
+          </div>
+        </div>`;
+      
+    document.getElementById('transaction-layout').appendChild(newSec);
   }else{
     alert("Invalid Input!");
   }
-  document.getElementById('current-bal').innerText = newBalance;
+  
 })
 
 document.getElementById('cashout-btn').addEventListener('click', function(event){
   event.preventDefault();
 
+  const cashOutNum = getInputValueById('cashout-amount');
+  const cashOutpin = getInputValueById('cashout-pin');
+  const currentBalNum = getTextInputValueById('current-bal');
 
-  const cashOutStr = document.getElementById('cashout-amount').value;
-  const cashOutNum = parseFloat(cashOutStr);
-  const cashOutpin = document.getElementById('cashout-pin').value;
-  const currentBalStr = document.getElementById('current-bal').innerText;
-  const currentBalNum = parseFloat(currentBalStr);
-  let newBalance = 0;
+  if(cashOutpin === 1234){
+    let newBalance = currentBalNum - cashOutNum;
+    document.getElementById('current-bal').innerText = newBalance;
 
-
-  if(cashOutpin === '1234'){
-    newBalance = currentBalNum - cashOutNum;
+    const newSec = document.createElement('div');
+    newSec.innerHTML = `<div class="stats bg-primary text-primary-content mb-2">
+          <div class="stat ">
+            <div id="transaction-bal-text" class="stat-title text-white">Cash out amount: </div>
+            <div id="transaction-bal" class="stat-value">${cashOutNum}</div>
+          </div>
+        
+          <div class="stat">
+            <div id="new-bal-text" class="stat-title text-white">New Balance: </div>
+            <div id="new-bal" class="stat-value">${newBalance}</div>
+          </div>
+        </div>`;
+      
+    document.getElementById('transaction-layout').appendChild(newSec);
   }else{
     alert("Invalid Input!");
   }
-  document.getElementById('current-bal').innerText = newBalance;
+  
 })

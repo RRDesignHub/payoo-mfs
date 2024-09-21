@@ -28,9 +28,10 @@
       <div class="divider"></div>
 
       <!-- toggle btn start -->
-      <div class="text-center space-x-3 ">
+      <div class="text-center space-x-3 space-y-3">
         <button id="add-money-show-btn" class="btn btn-lg ">Add Money</button>
         <button id="cashout-show-btn" class="btn btn-lg">Cash Out</button>
+        <button id="transaction-btn" class="btn btn-lg">Transactions</button>
       </div>
       <!-- toggle btn end -->
 
@@ -41,15 +42,15 @@
             <form class="card-body">
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Amount</span>
+                  <span class="label-text">Amount (Add money)</span>
                 </label>
-                <input type="email" id="add-amount" placeholder="Amount in TK..." class="input input-bordered" required />
+                <input autocomplete="off" type="email" id="add-amount" placeholder="Amount in TK..." class="input input-bordered" required />
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Pin</span>
                 </label>
-                <input type="password" id="add-money-pin" placeholder="4-digit pin..." class="input input-bordered" required />
+                <input autocomplete="off" type="password" id="add-money-pin" placeholder="4-digit pin..." class="input input-bordered" required />
               </div>
               <div class="form-control mt-6">
                 <button id="add-money-btn" class="btn btn-primary">Add Money</button>
@@ -67,15 +68,15 @@
             <form class="card-body">
               <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Amount</span>
+                  <span class="label-text">Amount (Cash out)</span>
                 </label>
-                <input type="email" id="cashout-amount" placeholder="Amount in TK..." class="input input-bordered" required />
+                <input autocomplete="off" type="email" id="cashout-amount" placeholder="Amount in TK..." class="input input-bordered" required />
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Pin</span>
                 </label>
-                <input type="password" id="cashout-pin" placeholder="4-digit pin..." class="input input-bordered" required />
+                <input autocomplete="off" type="password" id="cashout-pin" placeholder="4-digit pin..." class="input input-bordered" required />
               </div>
               <div class="form-control mt-6">
                 <button id="cashout-btn" class="btn btn-primary">Cash Out</button>
@@ -85,8 +86,17 @@
         </div>
       </div>
       <!-- cash out layout end-->
+
+      <!-- transaction section sstart -->
+       <div id="transaction-layout" class="mt-8 hidden">
+        <h2 class="text-3xl font-extrabold text-center py-3">Transactions history:</h2>
+        
+       </div>
+      
+      <!-- transaction section emd -->
     </div>
   </main>
+  <script src="./Js/utilities.js"></script>
   <script src="./Js/home.js"></script>
 </body>
 </html>
