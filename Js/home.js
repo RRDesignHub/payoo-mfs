@@ -1,3 +1,9 @@
+document.getElementById('logout-btn').addEventListener('click', function(){
+  window.location.href = './index.html';
+})
+
+
+
 // show layout for add money
 document.getElementById('add-money-show-btn').addEventListener('click', function(){
   

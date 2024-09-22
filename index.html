@@ -8,41 +8,53 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-  <main class="flex items-center mt-4">
-    <div class="mockup-phone">
-      <div class="camera"></div>
-      <div class="display">
-        <div class="artboard artboard-demo phone-1">
-          <div class="hero bg-base-200 min-h-screen">
-            <div class="hero-content flex-col ">
-              <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <form class="card-body">
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">Mobile Number</span>
-                    </label>
-                    <input id="mobile-num" type="email" placeholder="Your Mobile Number..." class="input input-bordered" required />
-                  </div>
-                  <div class="form-control">
-                    <label class="label">
-                      <span class="label-text">4 Digit Pin</span>
-                    </label>
-                    <input id="pin" type="password" placeholder="Pin..." class="input input-bordered" required />
-                    <label class="label">
-                      <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                    </label>
-                  </div>
-                  <div class="form-control mt-6">
-                    <button id="login-btn" class="btn btn-primary rounded-3xl">Login</button>
-                  </div>
-                </form>
+  <main class="flex justify-center">
+    <div class="artboard phone-2">
+      <div class="hero bg-base-200 min-h-screen">
+       
+
+        <div class="hero-content flex-col ">
+          <div class="heading pt-4">
+            <h1 class="text-2xl font-extrabold">Payooo Login Page</h1>
+          </div>
+      
+          <div class="divider"></div>
+
+          <div class="card bg-base-100  max-w-sm shrink-0 shadow-2xl">
+            <form class="card-body">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Mobile Number</span>
+                </label>
+                <input autocomplete="off" id="mobile-num" type="email" placeholder="Your Mobile Number..." class="input input-bordered" required />
               </div>
-            </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">4 Digit Pin</span>
+                </label>
+                <input autocomplete="off" id="pin" type="password" placeholder="Pin..." class="input input-bordered" required />
+                <label class="label">
+                  <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                </label>
+              </div>
+              <div class="form-control mt-6">
+                <button id="login-btn" class="btn btn-primary rounded-3xl">Login</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+    <!-- <div class="mockup-phone">
+      <div class="camera"></div>
+      <div class="display">
+        <div class="artboard artboard-demo phone-1">
+          
+        </div>
+      </div>
+    </div> -->
   </main>
+  <script src="./Js/utilities.js"></script>
   <script src="./Js/login.js"></script>
 </body>
 </html>
